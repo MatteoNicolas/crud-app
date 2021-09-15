@@ -1,0 +1,32 @@
+  
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>Novo usuário</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Criar novo usuário</h1>
+	<form name="formRegister" action="insert">
+		<table>
+			<tr>
+				<td><input type="text" name="nome" placeholder="Nome"
+					class="box1"></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="login" placeholder="Login"
+					class="box2"></td>
+			</tr>
+			<tr>
+				<td><input type="password" name="password" placeholder="Password"
+					class="box2"></td>
+			</tr>
+		</table>
+		<input type="button" value="Add" class="btn1"
+			onclick="validation()">
+	</form>
+	<script src="scripts/validation.js"></script>
+</body>
+</html>
