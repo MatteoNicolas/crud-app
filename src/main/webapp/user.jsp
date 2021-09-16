@@ -16,6 +16,7 @@ ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("users"
 <body>
 	<h1>Gerenciamento</h1>
 	<a href="new.html" class="btn1">Cadastrar</a>
+	<a href="report" class="btnRed">Gerar relatório</a>
 	<table id="tabela">
 		<thead>
 			<tr>
@@ -36,7 +37,8 @@ ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("users"
 				<td><%=lista.get(i).getLogin()%></td>
 				<td><%=lista.get(i).getPassword()%></td>
 				<td><a href="select?id=<%=lista.get(i).getId()%>" class="btn2">Editar</a>
-					<a href="javascript: confirmation(<%=lista.get(i).getId()%>)" class="btnRed">Excluir</a></td>
+					<a href="javascript: confirmation(<%=lista.get(i).getId()%>)"
+					class="btnRed">Excluir</a></td>
 			</tr>
 			<%
 			}

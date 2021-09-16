@@ -26,7 +26,6 @@ public class DAO {
 
 	}
 
-	/** CREATE **/
 	public void insertUser(JavaBeans user) {
 		String create = "insert into user(nome, login, password) values (?, ?, ?)";
 		try {
@@ -47,7 +46,6 @@ public class DAO {
 		}
 	}
 
-	/** READ **/
 	public ArrayList<JavaBeans> listarUsers() {
 
 		ArrayList<JavaBeans> users = new ArrayList<>();
@@ -74,7 +72,6 @@ public class DAO {
 		}
 	}
 
-	/** UPDATE **/
 	public void selectUser(JavaBeans user) {
 		String readSelect = "select * from user where id = ?";
 		try {
@@ -88,13 +85,13 @@ public class DAO {
 				user.setLogin(rs.getString(3));
 				user.setPassword(rs.getString(4));
 				con.close();
-			}			
+			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 
 	}
-	//Edit
+
 	public void alterUser(JavaBeans user) {
 		String create = "update user set nome = ?, login = ?, password = ? where id = ?";
 		try {
@@ -110,7 +107,7 @@ public class DAO {
 			System.out.println(e);
 		}
 	}
-	//delete
+
 	public void deleteUser(JavaBeans user) {
 		String delete = "delete from user where id = ?";
 		try {

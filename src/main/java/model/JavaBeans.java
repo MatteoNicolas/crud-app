@@ -5,9 +5,9 @@ public class JavaBeans {
 	private String nome;
 	private String login;
 	private String password;
-		
+
 	public JavaBeans() {
-		super();		
+		super();
 	}
 
 	public JavaBeans(String id, String nome, String login, String password) {
@@ -50,6 +50,4 @@ public class JavaBeans {
 		this.password = password;
 	}
 
-		
-	
 }
