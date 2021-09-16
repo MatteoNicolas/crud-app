@@ -51,7 +51,7 @@ public class DAO {
 	public ArrayList<JavaBeans> listarUsers() {
 
 		ArrayList<JavaBeans> users = new ArrayList<>();
-		String read = "select * from user order by nome";
+		String read = "select * from user order by id";
 		try {
 			Connection con = conectar();
 			PreparedStatement pst = con.prepareStatement(read);
@@ -71,6 +71,56 @@ public class DAO {
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
+		}
+	}
+
+	/** UPDATE **/
+	public void selectUser(JavaBeans user) {
+		String readSelect = "select * from user where id = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(readSelect);
+			pst.setString(1, user.getId());
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				user.setId(rs.getString(1));
+				user.setNome(rs.getString(2));
+				user.setLogin(rs.getString(3));
+				user.setPassword(rs.getString(4));
+				con.close();
+			}			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
+	//Edit
+	public void alterUser(JavaBeans user) {
+		String create = "update user set nome = ?, login = ?, password = ? where id = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(create);
+			pst.setString(1, user.getNome());
+			pst.setString(2, user.getLogin());
+			pst.setString(3, user.getPassword());
+			pst.setString(4, user.getId());
+			pst.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	//delete
+	public void deleteUser(JavaBeans user) {
+		String delete = "delete from user where id = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(delete);
+			pst.setString(1, user.getId());
+			pst.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 }
